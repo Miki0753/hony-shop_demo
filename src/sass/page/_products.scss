@@ -1,0 +1,24 @@
+@use "global" as *;
+.products {
+  padding: 20% 0;
+  background: #F5F4F0;
+  
+  @include mq('md') {
+    padding: 15% 0;
+  }
+}
+
+.products__media-wrap {
+  margin-bottom: -8%;
+}
+
+.products-media {
+  padding: 10% 4%;
+  background: #C5A984;
+  margin-bottom: 8%;
+}
+
+.products-media__text {
+  margin-bottom: 20px;
+  line-height: 2.3;
+}

@@ -1,0 +1,67 @@
+@use "global" as *;
+.concept {
+}
+
+.concept__img-wrap {
+  position: relative;
+  background: url(https://picsum.photos/id/400/1800/2400);
+  height: 100vh;
+  background-size: cover;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  img {
+    display: none;
+
+    @include mq('md') {
+      display: block;
+    }
+  }
+}
+
+.concept__content {
+  background: #ECEDDB;
+  padding: 20% 12%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include mq('md') {
+    padding: 10% 7%;
+  }
+}
+
+.concept__lead-wrap {
+}
+
+/* 文字スタイル */
+.concept__lead_jp,
+.concept__lead_en {
+  line-height: 2.8;
+}
+
+.concept__lead_jp {
+  font-size: rem(14);
+
+  @include mq('sm') {
+    font-size: rem(12);
+  }
+  
+  @include mq('md') {
+    font-size: rem(14);
+  }
+}
+
+.concept__lead_en {
+  font-size: rem(12);
+  letter-spacing: 1px;
+}
+
+/* レイアウト */
+.concept__lead_jp {
+  margin-bottom: rem(80);
+}
+
+.concept__lead_en {
+}

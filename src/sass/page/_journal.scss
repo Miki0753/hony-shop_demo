@@ -1,0 +1,133 @@
+@use "global" as *;
+.journal {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  justify-items: center;
+  position: relative;
+
+  @include mq('md') {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+  }
+}
+
+.journal-hero {
+  background: url(https://picsum.photos/id/1033/2400/1500);
+  height: 735px;
+  background-size: cover;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-position: center center;
+  
+  @include mq('md') {
+    background-attachment: fixed;
+  }
+}
+// .journal__hero {
+//   width: 100%;
+//   height: 735px;
+//   overflow: hidden;
+//   grid-area: 1 / 1 / 4 / 2;
+  
+//   img {
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//   }
+
+//   @include mq('md') {
+//     grid-area: 1 / 1 / 2 / 4;
+//   }
+// }
+
+
+
+.journal-title {
+  color: #fff;
+  grid-area: 2 / 1 / 3 / 2;
+  align-self: center;
+  margin-bottom: 0;
+
+  @include mq('md') {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+}
+
+.journal__view-more {
+  position: absolute;
+  top: 75%;
+  right: rem(2);
+  transform: translateY(-50%);
+  
+  @include mq('sm') {
+    top: 50%;
+  }
+  
+  p {
+    font-size: rem(10);
+    color: #fff;
+    margin-right: rem(5);
+
+    @include mq('md') {
+      font-size: rem(12);
+    }
+  }
+}
+
+/* 文字と線のレイアウト */
+.journal__view-more {
+  display: flex;
+  align-items: center;
+}
+
+/* 線 */
+.journal__line {
+  position: relative;
+  width: 20vw;
+  height: 1px;
+  background: transparent;
+
+  &::before {
+    width: 20vw;
+    height: 1px;
+    background: #fff;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    /*線の動き*/
+    animation: lineMove 3.5s ease-in-out infinite, lineMoveHide 3.5s ease-out infinite;
+  }
+}
+
+/* 線の変形 */
+@keyframes lineMove {
+  0% {
+    width: 0;
+  }
+  
+  100% {
+    width: 20vw;
+  }
+}
+
+/* 線の透過 */
+@keyframes lineMoveHide {
+  0% {
+    opacity: 0
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

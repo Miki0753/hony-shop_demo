@@ -1,0 +1,13 @@
+@use "global" as *;
+
+.footer {
+  height: 100vh;
+  background: #D9CBBB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-title {
+  color: #fff;
+}

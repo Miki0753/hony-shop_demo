@@ -1,0 +1,43 @@
+@use "global" as *;
+.half-media {
+  
+  @include mq('sm') {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.half-media__img-wrapper {
+  position: relative;
+  aspect-ratio: 16 / 9; 
+  overflow: hidden;
+  margin-bottom: 20px;
+  
+  @include mq('sm') {
+    flex: 0 1 48.33333%;
+    margin-right: 10%;
+  }
+}
+
+.half-media__img {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  height: 100%;
+  object-fit: cover;
+}
+
+.half-media__body {
+  flex: 1;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.half-media__title {
+  margin-bottom: 10px;
+  font-size: 1.125rem;
+  font-weight: bold;
+}

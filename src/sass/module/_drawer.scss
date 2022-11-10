@@ -1,0 +1,159 @@
+@use "global" as *;
+
+.js-drawer-icon {
+  position: fixed;
+  top: 22px;
+  right: 20px;
+  z-index: $layer-drawer;
+  display: block;
+  transition: top ease .3s;
+
+  @include mq('md') {
+    top: 42px;
+    right: 25px;
+  }
+
+  @include mq('lg') {
+    display: none; //最初消えている
+  }
+
+  &.is-active {
+    transition: transform 0.3s ease 0s;
+    right: 75%;
+  }
+
+  &.is-active {
+    .js-drawer-icon__bar1 {
+      transition: transform 0.3s ease 0s;
+      top: 9.9px;
+      transform: rotate(45deg);
+      background-color: $color-bg-base;
+    }
+
+    .js-drawer-icon__bar2 {
+      transition: transform 0.3s ease 0s;
+      top: 9.9px;
+      display: none;
+    }
+
+    .js-drawer-icon__bar3 {
+      transition: transform 0.3s ease 0s;
+      top: 9.9px;
+      transform: rotate(-45deg);
+      background-color: $color-bg-base;
+    }
+  }
+
+  &.change-large{
+
+    @include mq('md') {
+      top: 32px;
+    }
+  }
+}
+
+/* barがはいる箱 */
+.js-drawer-icon__bars {
+  width: 27px;
+  height: 16px;
+  display: block;
+  position: relative; //bar1~3の起点
+}
+
+/* それぞれのbarの線分を作る */
+.js-drawer-icon__bar1,
+.js-drawer-icon__bar2,
+.js-drawer-icon__bar3 {
+  width: 27px;
+  height: 1px;
+  background-color: $color-bg-base;
+  position: absolute;
+  top: 0; //一旦初期化のための配置（後で個別に位置指定）
+  left: 0;
+  transition: background-color ease .3s;
+
+  &.change-large {
+    background-color: $color-text-base;
+  }
+}
+
+.js-drawer-icon__bar1 {
+  top: 0;
+}
+
+.js-drawer-icon__bar2 {
+  top: 8px;
+}
+
+.js-drawer-icon__bar3 {
+  top: 16px;
+}
+
+/* ドロワーメニュー全体の箱 */
+.js-drawer-content {
+  width: 70%;
+  height: 100%; //下まで伸びる
+  position: fixed; //浮かせる
+  right: 0;
+  top: 0;
+  background: $color-bg-base;
+  z-index: 39; //三ボタンより下、ヘッダーより上
+  transform: translateX(105%); //右側にしまっておく
+  transition: transform ease 0.5s 0s;
+  display: flex; //メニュー文字部分の上下左右中央
+  align-items: center;
+  justify-content: center;
+
+  &.is-active {
+    transform: translateX(0);
+  }
+}
+
+.js-drawer-content__items {
+  padding-top: 24px;
+  text-align: center;
+}
+
+.js-drawer-content__item {
+  margin-bottom: 48px;
+
+  &:nth-child(4) {
+    margin-bottom: 51px;
+  }
+
+  @include mq('md') {
+    margin-bottom: 60px;
+  }
+}
+
+.js-drawer-content__link {
+  color: $color-text-base;
+  font-size: 20px;
+  font-weight: $font-normal;
+  display: block;
+
+  @include mq('md') {
+    font-size: 24px;
+  }
+}
+
+.drawer-cta {
+  text-align: left;
+}
+
+.js-drawer-background {
+  background: rgba(0, 0, 0, 0.7);
+  bottom: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transition: .3s;
+  visibility: hidden;
+  width: 100%;
+  z-index: 38;
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+}

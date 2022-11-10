@@ -1,0 +1,81 @@
+@use "global" as *;
+.about {
+  background: #887e7e;
+  padding: 20% 0;
+  
+  @include mq('md') {
+    padding: 15% 0;
+  }
+}
+
+.about__wrap {
+  flex-direction: row-reverse;
+}
+
+.about__img-wrap {
+  width: 100%;
+  position: relative;
+
+  @include mq('md') {
+    flex: 1 1 60%;
+    position: static;
+  }
+}
+
+.about__content {
+  padding: 20%;
+
+  @include mq('md') {
+    flex: 1 1 40%;
+    position: relative;
+    padding: 0;
+  }
+}
+
+.about__lead-wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: row-reverse;
+  
+  @include mq('md') {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.about-title,
+.about__lead_jp,
+.about__lead_en {
+  color: #fff;
+}
+
+.about-title {
+  text-align: center;
+
+  @include mq('md') {
+    margin-bottom: 0;
+  }
+}
+
+.about__lead_jp {
+  font-size: rem(18);
+  font-weight: 700;
+  letter-spacing: 20px;
+  line-height: 2.3;
+  margin-left: 5%;
+
+  @include mq('md') {
+    font-size: rem(20);
+    letter-spacing: 30px;
+    margin-left: 7%;
+  }
+}
+
+.about__lead_jp,
+.about__lead_en {
+  writing-mode: vertical-lr;
+  text-align: center;
+}

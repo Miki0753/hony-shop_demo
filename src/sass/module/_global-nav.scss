@@ -1,0 +1,30 @@
+@use "global" as *;
+
+.global-nav {
+}
+
+.global-nav__list {
+  display: flex;
+  align-items: center;
+}
+
+.global-nav__item {
+  
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+.global-nav__link {
+  color: #fff;
+  line-height: $header-height-sp;
+
+  @include mq('md') {
+    line-height: $header-height-pc;
+  }
+  
+  &.change-large {
+    color: $color-text-base;
+    line-height: 80px;
+  }
+}
